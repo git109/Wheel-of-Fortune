@@ -1,0 +1,25 @@
+*/.DS_Store
+WheelScrollViewDemo/build
+WheelScrollViewDemo/WheelScrollViewDemo.xcodeproj/*.pbxuser
+WheelScrollViewDemo/WheelScrollViewDemo.xcodeproj/*.mode1v3
+WheelScrollViewDemo/Products
+WheelScrollViewDemo/*.pbxuser
+WheelScrollViewDemo/*.perspectivev3
+WheelScrollViewDemo/*.mode1v3
+WheelScrollViewDemo/.pbxuser
+WheelScrollViewDemo/.perspectivev3
+WheelScrollViewDemo/.mode1v3
+WheelScrollViewDemo/WheelScrollViewDemo.xcodeproj/xcuserdata/*
+WheelScrollViewDemo/WheelScrollViewDemo.xcodeproj/*.xcworkspace
+# xcode noise
+build/*
+*.pbxuser
+*.mode1v3
+
+# old skool
+.svn
+
+# osx noise
+.DS_Store
+profile
+
