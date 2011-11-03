@@ -114,7 +114,31 @@ static float currentAngle;
 		float angleDif = deltaAngle - ang;
 		
         //concatonate the transform with the angle difference
-		CGAffineTransform newTrans = CGAffineTransformRotate(initialTransform, -angleDif);
+        CGAffineTransform newTrans;
+        switch (wheelFace)
+        {
+            case kWheelFaceUp:
+            {
+                break;
+            }
+            case kWheelFaceLeft:
+            {
+                newTrans = CGAffineTransformRotate(initialTransform, -angleDif);
+                break;
+            }
+            case kWheelFaceDown:
+            {
+                break;
+            }
+            case kWheelFaceRight:
+            {
+                newTrans = CGAffineTransformRotate(initialTransform, -angleDif);
+                break;
+            }
+            default:
+                break;
+        }
+		
 		wheelScrollView.transform = newTrans;
         //[self refreshInitialTransformArray];
         for (int i = 0; i < [wheelScrollView.itemsImageViewArray count]; i++) {

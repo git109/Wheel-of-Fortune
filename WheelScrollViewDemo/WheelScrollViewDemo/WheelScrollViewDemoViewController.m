@@ -23,10 +23,10 @@
     wheelScrollViewManager = [[WheelScrollViewManager alloc] initWithFrame:self.view.bounds andDelegate:self];
     
     [wheelScrollViewManager setItemsArray:[NSMutableArray arrayWithObjects:@"1.jpg", @"2.jpg",@"3.jpg", @"4.jpg", @"5.jpg",@"6.jpg", @"7.jpg", nil]];
-    [wheelScrollViewManager setAngle:100];
+    [wheelScrollViewManager setAngle:180];
     [wheelScrollViewManager setNoOfVisibleItems:5];
     [wheelScrollViewManager setWheelViewSize:320];
-    [wheelScrollViewManager setItemSize:50];
+    [wheelScrollViewManager setItemSize:40];
     [wheelScrollViewManager setZoomEffect:YES];
     [wheelScrollViewManager setZoomFactor:3.0];
     [wheelScrollViewManager setRadiusOffset:35];
@@ -34,7 +34,7 @@
     
     //Change the Center of the Circle
     [wheelScrollViewManager setCircleCenter:CGPointMake(160, 230)];
-    [wheelScrollViewManager setWheelFace:kWheelFaceLeft];
+    [wheelScrollViewManager setWheelFace:kWheelFaceRight];
     [wheelScrollViewManager loadView];
     [wheelScrollViewManager setBgImage:[UIImage imageNamed:@"background.jpg"]];
     //[wheelScrollViewManager setOverlayImage:[UIImage imageNamed:@"topOverlay.png"]];
