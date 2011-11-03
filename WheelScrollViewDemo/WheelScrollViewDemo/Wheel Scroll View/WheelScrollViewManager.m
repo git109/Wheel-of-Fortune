@@ -20,7 +20,7 @@ static float currentAngle;
 
 @implementation WheelScrollViewManager
 @synthesize initialTransform,currentValue,bgImage;
-@synthesize zoomFactor, angle, noOfVisibleItems,bufferElements,itemsArray,zoomEffect,wheelViewSize,itemSize,radiusOffset,isItemImageLandscape, overlayImage;
+@synthesize zoomFactor, angle, noOfVisibleItems,bufferElements,itemsArray,zoomEffect,wheelViewSize,itemSize,radiusOffset,isItemImageLandscape, overlayImage, circleCenter;
 
 #pragma mark - View lifecycle
 -(id)initWithFrame:(CGRect)frame andDelegate:(id)_delegate
@@ -45,7 +45,8 @@ static float currentAngle;
     //zoomEffect = NO;
     wheelScrollView = [[WheelScrollView alloc] initWithFrame:CGRectMake(0, 0, wheelViewSize, wheelViewSize) andRadiusOffset:radiusOffset andAngle:angle andItemsArray:itemsArray andNoOfVisibleItems:noOfVisibleItems andItemSize:itemSize andDelegate:self andZoomEffect:zoomEffect andZoomFactor:zoomFactor andBufferElements:bufferElements];
     [wheelScrollView setIsItemImageLandscape:isItemImageLandscape];
-    wheelScrollView.center = CGPointMake(-160, 230);
+    wheelScrollView.center = circleCenter;
+    //wheelScrollView.center = CGPointMake(160, 230);
     [wheelScrollView loadWheelView];
     for (float i = 0; i<[wheelScrollView.itemsImageViewArray count]; i++) {
         [initialTransformArray insertObject:[NSValue valueWithCGAffineTransform:((UIImageView *)[wheelScrollView.itemsImageViewArray objectAtIndex:i]).transform] atIndex:i];

@@ -27,10 +27,13 @@
     [wheelScrollViewManager setNoOfVisibleItems:5];
     [wheelScrollViewManager setWheelViewSize:900];
     [wheelScrollViewManager setItemSize:50];
-    [wheelScrollViewManager setZoomEffect:NO];
+    [wheelScrollViewManager setZoomEffect:YES];
     [wheelScrollViewManager setZoomFactor:3.0];
     [wheelScrollViewManager setRadiusOffset:35];
     [wheelScrollViewManager setIsItemImageLandscape:NO];
+    
+    //Change the Center of the Circle
+    [wheelScrollViewManager setCircleCenter:CGPointMake(-160, 230)];
     [wheelScrollViewManager loadView];
     [wheelScrollViewManager setBgImage:[UIImage imageNamed:@"background.jpg"]];
     //[wheelScrollViewManager setOverlayImage:[UIImage imageNamed:@"topOverlay.png"]];

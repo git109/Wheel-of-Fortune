@@ -170,6 +170,9 @@
 /* Begin PBXProject section */
 		995E1892143EC8EF00EA8310 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = 995E1895143EC8EF00EA8310 /* Build configuration list for PBXProject "WheelScrollViewDemo" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
@@ -319,6 +322,7 @@
 				995E18BB143EC8EF00EA8310 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -49,6 +49,7 @@
     BOOL isItemImageLandscape;
     UIImageView *overlayImageView;
     UIImage * overlayImage;
+    CGPoint circleCenter;
 }
 
 @property BOOL isItemImageLandscape;
@@ -63,6 +64,7 @@
 @property (nonatomic, retain) NSMutableArray * itemsArray;
 @property (nonatomic, retain) UIImage * bgImage;
 @property (nonatomic, retain) UIImage * overlayImage;
+@property CGPoint circleCenter;
 @property CGAffineTransform initialTransform;
 @property float currentValue;
 -(id)initWithFrame:(CGRect)frame andDelegate:(id)_delegate;
