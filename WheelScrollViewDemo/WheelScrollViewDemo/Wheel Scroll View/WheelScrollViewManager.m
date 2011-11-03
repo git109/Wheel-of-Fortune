@@ -20,7 +20,7 @@ static float currentAngle;
 
 @implementation WheelScrollViewManager
 @synthesize initialTransform,currentValue,bgImage;
-@synthesize zoomFactor, angle, noOfVisibleItems,bufferElements,itemsArray,zoomEffect,wheelViewSize,itemSize,radiusOffset,isItemImageLandscape, overlayImage, circleCenter;
+@synthesize zoomFactor, angle, noOfVisibleItems,bufferElements,itemsArray,zoomEffect,wheelViewSize,itemSize,radiusOffset,isItemImageLandscape, overlayImage, circleCenter, wheelFace;
 
 #pragma mark - View lifecycle
 -(id)initWithFrame:(CGRect)frame andDelegate:(id)_delegate

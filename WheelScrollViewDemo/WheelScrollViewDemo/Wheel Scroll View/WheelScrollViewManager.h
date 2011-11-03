@@ -15,6 +15,7 @@
 
 @end
 
+@class WheelScrollView;
 @interface WheelScrollViewManager : UIView {
 
     NSArray * imageViewArray;
@@ -50,6 +51,7 @@
     UIImageView *overlayImageView;
     UIImage * overlayImage;
     CGPoint circleCenter;
+    int wheelFace;
 }
 
 @property BOOL isItemImageLandscape;
@@ -64,6 +66,7 @@
 @property (nonatomic, retain) NSMutableArray * itemsArray;
 @property (nonatomic, retain) UIImage * bgImage;
 @property (nonatomic, retain) UIImage * overlayImage;
+@property int wheelFace;
 @property CGPoint circleCenter;
 @property CGAffineTransform initialTransform;
 @property float currentValue;

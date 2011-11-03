@@ -7,6 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WheelScrollViewManager.h"
+enum WheelFace
+{
+    kWheelFaceUp,
+    kWheelFaceLeft,
+    kWheelFaceDown,
+    kWheelFaceRight
+};
 
 @interface WheelScrollView : UIView{
     NSInteger radius;
@@ -41,4 +49,5 @@
 -(id)initWithFrame:(CGRect)_frame andRadiusOffset:(NSInteger)_radiusOffset andAngle:(CGFloat)_angle andItemsArray :(NSMutableArray *)_itemsArray andNoOfVisibleItems:(NSInteger)_noOfVisibleItems andItemSize:(NSInteger)_size andDelegate:(id)_delegate andZoomEffect:(BOOL)_zoomEffect andZoomFactor:(CGFloat)_zoomFactor andBufferElements:(NSInteger)_bufferElements;
 -(void)loadWheelView;
 -(void)rePositionElements:(NSInteger)indexChangeDiff;
+-(CGPoint)getInitialPosition;
 @end

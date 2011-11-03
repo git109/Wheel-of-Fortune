@@ -57,7 +57,8 @@
     
     //Setting up the initial position of the Items
     for (int i = 0; i < [itemsArray count]; i++) {
-        position = CGPointMake(radius + (frame.size.width / 2), (frame.size.height / 2));
+        //position = CGPointMake(radius + (frame.size.width / 2), (frame.size.height / 2));
+        position = [self getInitialPosition];
         //NSLog(@"Index %f", i + 1 - ceilf([itemsArray count] / 2.0f));
         if(i != floor([itemsArray count] / 2.0f))
         {            
@@ -131,7 +132,8 @@
             lowerBoundIndex = lowerBoundIndex + 1;
         }
         
-        CGPoint position = CGPointMake(radius + (frame.size.width / 2), (frame.size.height / 2));
+        //CGPoint position = CGPointMake(radius + (frame.size.width / 2), (frame.size.height / 2));
+        CGPoint position = [self getInitialPosition];
         CGFloat ang = angle * newIndex / noOfVisibleItems;
         CGFloat thisAngle;
         thisAngle = ang * 3.14 / 180;
@@ -159,6 +161,30 @@
         }
         count++;
     }    
+}
+
+-(CGPoint)getInitialPosition
+{
+    CGPoint position;
+    switch ((((WheelScrollViewManager *)delegate).wheelFace)) {
+        case 0:
+            position = CGPointMake(radius + (frame.size.width / 2), (frame.size.height / 2));
+            break;
+        case 1:
+            position = CGPointMake(((frame.size.width / 2) - radius), (frame.size.height / 2));
+            break;
+        case 2:
+            position = CGPointMake(radius + (frame.size.width / 2), (frame.size.height / 2));
+            break;
+        case 3:
+            position = CGPointMake(radius + (frame.size.width / 2), (frame.size.height / 2));
+            break;
+        default:
+            position = CGPointMake(0, 0);
+            break;
+    }
+    NSLog(@"Position : %@", NSStringFromCGPoint(position));
+    return position;
 }
 
 @end
