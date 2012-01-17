@@ -15,7 +15,6 @@
 
 @end
 
-@class WheelScrollView;
 @interface WheelScrollViewManager : UIView {
 
     NSArray * imageViewArray;
@@ -36,7 +35,12 @@
     
     id <WheelScrollViewDelegate> delegate;
     UIImageView * bgImageView;
+    UIImageView * fgImageView;
+    UIImageView * avatarImageView;
+    
     UIImage * bgImage;
+    UIImage * fgImage;
+    UIImage * avatarImage;
     
     NSMutableArray * itemsArray;
     BOOL zoomEffect;
@@ -50,8 +54,8 @@
     BOOL isItemImageLandscape;
     UIImageView *overlayImageView;
     UIImage * overlayImage;
-    CGPoint circleCenter;
-    int wheelFace;
+    
+    BOOL isZoomed;
 }
 
 @property BOOL isItemImageLandscape;
@@ -65,9 +69,9 @@
 @property BOOL zoomEffect;
 @property (nonatomic, retain) NSMutableArray * itemsArray;
 @property (nonatomic, retain) UIImage * bgImage;
+@property (nonatomic, retain) UIImage * fgImage;
+@property (nonatomic, retain) UIImage * avatarImage;
 @property (nonatomic, retain) UIImage * overlayImage;
-@property int wheelFace;
-@property CGPoint circleCenter;
 @property CGAffineTransform initialTransform;
 @property float currentValue;
 -(id)initWithFrame:(CGRect)frame andDelegate:(id)_delegate;

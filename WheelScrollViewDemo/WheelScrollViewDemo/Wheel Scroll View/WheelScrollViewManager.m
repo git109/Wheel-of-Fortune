@@ -19,8 +19,8 @@ static float deltaAngle;
 static float currentAngle;
 
 @implementation WheelScrollViewManager
-@synthesize initialTransform,currentValue,bgImage;
-@synthesize zoomFactor, angle, noOfVisibleItems,bufferElements,itemsArray,zoomEffect,wheelViewSize,itemSize,radiusOffset,isItemImageLandscape, overlayImage, circleCenter, wheelFace;
+@synthesize initialTransform,currentValue,bgImage,fgImage,avatarImage;
+@synthesize zoomFactor, angle, noOfVisibleItems,bufferElements,itemsArray,zoomEffect,wheelViewSize,itemSize,radiusOffset,isItemImageLandscape, overlayImage;
 
 #pragma mark - View lifecycle
 -(id)initWithFrame:(CGRect)frame andDelegate:(id)_delegate
@@ -35,8 +35,14 @@ static float currentAngle;
 -(void)loadView
 {
     bgImageView = [[UIImageView alloc] initWithFrame:self.bounds];
+    fgImageView = [[UIImageView alloc] initWithFrame:self.bounds];
+    avatarImageView = [[UIImageView alloc] initWithFrame:self.bounds];
+    avatarImageView.center = CGPointMake(95, avatarImageView.center.y + 10);
     overlayImageView = [[UIImageView alloc] initWithFrame:self.bounds];
     [self addSubview:bgImageView];
+    [self addSubview:avatarImageView];
+    [self addSubview:fgImageView];
+    
     self.userInteractionEnabled = YES;
     currentValue = 0;
     currentAngle = 0;
@@ -45,8 +51,7 @@ static float currentAngle;
     //zoomEffect = NO;
     wheelScrollView = [[WheelScrollView alloc] initWithFrame:CGRectMake(0, 0, wheelViewSize, wheelViewSize) andRadiusOffset:radiusOffset andAngle:angle andItemsArray:itemsArray andNoOfVisibleItems:noOfVisibleItems andItemSize:itemSize andDelegate:self andZoomEffect:zoomEffect andZoomFactor:zoomFactor andBufferElements:bufferElements];
     [wheelScrollView setIsItemImageLandscape:isItemImageLandscape];
-    wheelScrollView.center = circleCenter;
-    //wheelScrollView.center = CGPointMake(160, 230);
+    wheelScrollView.center = CGPointMake(-160, 230);
     [wheelScrollView loadWheelView];
     for (float i = 0; i<[wheelScrollView.itemsImageViewArray count]; i++) {
         [initialTransformArray insertObject:[NSValue valueWithCGAffineTransform:((UIImageView *)[wheelScrollView.itemsImageViewArray objectAtIndex:i]).transform] atIndex:i];
@@ -63,6 +68,16 @@ static float currentAngle;
 -(void)setBgImage:(UIImage *)_bgImage
 {
     bgImageView.image = _bgImage;
+}
+
+-(void)setFgImage:(UIImage *)_fgImage
+{
+    fgImageView.image = _fgImage;
+}
+
+-(void)setAvatarImage:(UIImage *)_avatarImage
+{
+    avatarImageView.image = _avatarImage;
 }
 
 -(void)setOverlayImage:(UIImage *)_overlayImage
@@ -114,31 +129,7 @@ static float currentAngle;
 		float angleDif = deltaAngle - ang;
 		
         //concatonate the transform with the angle difference
-        CGAffineTransform newTrans;
-        switch (wheelFace)
-        {
-            case kWheelFaceUp:
-            {
-                break;
-            }
-            case kWheelFaceLeft:
-            {
-                newTrans = CGAffineTransformRotate(initialTransform, -angleDif);
-                break;
-            }
-            case kWheelFaceDown:
-            {
-                break;
-            }
-            case kWheelFaceRight:
-            {
-                newTrans = CGAffineTransformRotate(initialTransform, -angleDif);
-                break;
-            }
-            default:
-                break;
-        }
-		
+		CGAffineTransform newTrans = CGAffineTransformRotate(initialTransform, -angleDif);
 		wheelScrollView.transform = newTrans;
         //[self refreshInitialTransformArray];
         for (int i = 0; i < [wheelScrollView.itemsImageViewArray count]; i++) {
