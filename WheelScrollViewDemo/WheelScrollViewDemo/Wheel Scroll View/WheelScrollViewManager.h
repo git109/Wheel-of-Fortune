@@ -17,6 +17,14 @@
 
 @interface WheelScrollViewManager : UIView {
 
+    double dragStartTime;
+    double dragTime;
+    CGPoint lastMovedPoint;
+    float inertialAngle;
+    float inertialMaxAngle;
+    BOOL isInertialEffectOn;
+    float angleDiff;
+    NSTimer * inertialTimer;
     NSArray * imageViewArray;
 	CGAffineTransform initialTransform;  
     
@@ -56,6 +64,9 @@
     UIImage * overlayImage;
     
     BOOL isZoomed;
+    
+    int selectableIndex;
+    int prevZoom;
 }
 
 @property BOOL isItemImageLandscape;
